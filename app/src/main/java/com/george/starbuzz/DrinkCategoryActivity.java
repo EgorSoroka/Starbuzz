@@ -1,20 +1,25 @@
 package com.george.starbuzz;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
-public class DrinkCategoryActivity  extends Activity {
+public class DrinkCategoryActivity  extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_category);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         ArrayAdapter<Drink> listAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
@@ -37,5 +42,10 @@ public class DrinkCategoryActivity  extends Activity {
                 };
         //Назначение слушателя для спискового представления
         listDrinks.setOnItemClickListener(itemClickListener);
+    }
+
+    private void setSupportActionBar(Toolbar toolbar) {
+        //Судя по всему многое что изменилось с момента написания книги и что бы в toolbar
+        // что-то отображалось тут должен быть код
     }
 }
